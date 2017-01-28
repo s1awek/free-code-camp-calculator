@@ -16,3 +16,135 @@
     zoom: 1;
     /* ie 6/7 */
 }
+
+#container {
+    width: 320px;
+    height: 500px;
+    background-color: blue;
+    margin: 30px auto;
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    left: 20px;
+    top: 5px;
+}
+
+#display {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    width: 300px;
+    height: 60px;
+    background-color: red;
+}
+
+.button {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: yellow;
+    font-size: 30px;
+    line-height: 60px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+#ac {
+    top: 110px;
+    left: 10px;
+    padding: 0 15px;
+}
+
+#ce {
+    top: 110px;
+    left: 90px;
+    padding: 0 15px;
+}
+
+#divide {
+    top: 110px;
+    left: 170px;
+    padding: 0 22px;
+}
+
+#multip {
+    top: 110px;
+    left: 250px;
+    padding: 0 25px;
+    line-height: 75px;
+}
+
+#seven {
+    top: 190px;
+    left: 10px;
+}
+
+#eight {
+    top: 190px;
+    left: 90px;
+}
+
+#nine {
+    top: 190px;
+    left: 170px;
+}
+
+#minus {
+    top: 190px;
+    left: 250px;
+    padding: 0 25px;
+}
+
+#four {
+    top: 270px;
+    left: 10px;
+}
+
+#five {
+    top: 270px;
+    left: 90px;
+}
+
+#six {
+    top: 270px;
+    left: 170px;
+}
+
+#plus {
+    top: 270px;
+    left: 250px;
+}
+
+#one {
+    top: 350px;
+    left: 10px;
+}
+
+#two {
+    top: 350px;
+    left: 90px;
+}
+
+#three {
+    top: 350px;
+    left: 170px;
+}
+
+#eql {
+    top: 350px;
+    left: 250px;
+    height: 140px;
+}
+
+#zero {
+    top: 430px;
+    left: 10px;
+    width: 140px
+}
+
+#dot {
+    top: 430px;
+    left: 170px;
+}
