@@ -1,4 +1,8 @@
 var el = document.getElementsByClassName('button');
+var str1 = '0';
+var dsp = document.getElementById('display');
+var history = [];
+dsp.innerHTML = '0'
 
 function addEL() {
     var i;
@@ -6,35 +10,39 @@ function addEL() {
         el[i].addEventListener('click', displayNumber);
     }
 }
-
 addEL();
 
-var str1 = '';
-
-
 function displayNumber() {
-    console.log(str1);
     var number = this.dataset.number;
-    var dsp = document.getElementById('display');
-    if ((number === '+' || number === '-' || number === '*' || number === '/' || number === '.') && number === str1.toString().slice(-1)) {
+    var operators = ['.', '+', '-', '*', '/'];
+    var lastChar = str1.toString().slice(-1);
 
+    if (operators.indexOf(lastChar) !== -1 && this.dataset.nodouble) {
+        return;
+    } else if (number === operators[0] && str1.toString().indexOf(operators[0]) !== -1) {
+        return;
     } else if (number === 'ac') {
         str1 = '0';
         dsp.innerHTML = str1;
     } else if (number === 'ce') {
+        if (str1.length <= 1) {
+            str1 = '0';
+            dsp.innerHTML = str1;
+        } else {
+            str1 = str1.toString().slice(0, -1);
+            dsp.innerHTML = str1;
+        }
 
     } else if (number === '=') {
         str1 = eval(str1);
         dsp.innerHTML = str1;
     } else {
-        if (str1 === '0') {
+        if (str1 === '0' && number !== '.') {
             str1 = number;
             dsp.innerHTML = str1;
         } else {
             str1 += number;
             dsp.innerHTML = str1;
         }
-
     }
-
 }
