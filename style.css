@@ -73,7 +73,7 @@
     top: 110px;
     left: 250px;
     padding: 0 25px;
-    line-height: 75px;
+    line-height: 60px;
 }
 
 #seven {
@@ -147,4 +147,19 @@
 #dot {
     top: 430px;
     left: 170px;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }

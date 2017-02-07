@@ -8,20 +8,22 @@
     <meta name="description" content="Free Code Camp Exercise - calculator">
     <link rel="stylesheet" href="
 https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <!--
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
+-->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div id="wrapper">
-        <div id="container">
+        <div id="container" class="noselect">
             <div id="logo">Casio</div>
             <div id="display"></div>
             <div id="ac" class="button" data-number="ac">ac</div>
             <div id="ce" class="button" data-number="ce">ce</div>
-            <div id="divide" class="button" data-number="/" data-nodouble="1">&#247;</div>
-            <div id="multip" class="button" data-number="*" data-nodouble="1">*</div>
+            <div id="divide" class="button" data-number="&#247;" data-nodouble="1">&#247;</div>
+            <div id="multip" class="button" data-number="*" data-nodouble="1">x</div>
             <div id="seven" class="button" data-number="7">7</div>
             <div id="eight" class="button" data-number="8">8</div>
             <div id="nine" class="button" data-number="9">9</div>
@@ -40,10 +42,14 @@ https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
 
     </div>
 
+    <script type="text/javascript" src="js/decimal.js"></script>
+    <script type="text/javascript" src="js/math.min.js"></script>
+    <!--
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+-->
+    <script type="text/javascript" src="js/script.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
