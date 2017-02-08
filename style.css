@@ -18,11 +18,12 @@
 }
 
 #container {
+    position: relative;
     width: 320px;
     height: 500px;
     background-color: blue;
     margin: 30px auto;
-    position: relative;
+    border-radius: 5px;
 }
 
 #logo {
@@ -43,6 +44,8 @@
     font-family: 'digital-7_monomono';
     font-size: 54px;
     padding: 0 15px;
+    text-align: right;
+    border-radius: 5px;
 }
 
 .button {
@@ -54,30 +57,32 @@
     line-height: 60px;
     padding: 0 20px;
     cursor: pointer;
+    font-family: 'Verdana', sans-serif;
+    border-radius: 5px;
 }
 
 #ac {
     top: 110px;
     left: 10px;
-    padding: 0 15px;
+    padding: 0 14px;
 }
 
 #ce {
     top: 110px;
     left: 90px;
-    padding: 0 15px;
+    padding: 0 14px;
 }
 
 #divide {
     top: 110px;
     left: 170px;
-    padding: 0 22px;
+    padding: 0 18px;
 }
 
 #multip {
     top: 110px;
     left: 250px;
-    padding: 0 25px;
+    padding: 0 22px;
     line-height: 60px;
 }
 
@@ -99,7 +104,7 @@
 #minus {
     top: 190px;
     left: 250px;
-    padding: 0 25px;
+    padding: 0 24px;
 }
 
 #four {
@@ -141,6 +146,7 @@
     top: 350px;
     left: 250px;
     height: 140px;
+    padding: 0 17px;
 }
 
 #zero {

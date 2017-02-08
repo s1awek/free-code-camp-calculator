@@ -1,3 +1,9 @@
+// I spent some time trying to solve Floating-Point error: if you want to calculate "0.3 - 0.1" you'll get "0.19999999999999998" instead of "0.2"
+// Tried many solutions but none of it worked good enough and some of them was quite complicated.
+// At the end I decided to use math.js library http://mathjs.org which deals with the problem nicely. (⌐■_■)
+// I noticed interesting thing: at codepen.io most of calculators don't deal with Floating-Point error at all!
+// Check it for yourself: http://codepen.io/search/pens?q=calculator&limit=all&type=type-pens
+// Also many of the calculators at codepen.io don't deal with text overflowing in case very long input ( ͡° ʖ̯ ͡° )
 'use strict';
 var el = document.getElementsByClassName('button');
 var str = '';
@@ -7,13 +13,12 @@ dsp.innerHTML = '0';
 
 String.prototype.splice = function (idx, rem, str) {
     return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
-}; // splice for strings, http://stackoverflow.com/questions/4313841/javascript-how-can-i-insert-a-string-at-a-specific-index
+}; // splice() for strings prototype, http://stackoverflow.com/questions/4313841/javascript-how-can-i-insert-a-string-at-a-specific-index
 
 
 // configure the default type of numbers as BigNumbers
 math.config({
-    number: 'BigNumber', // Default type of number:
-    // 'number' (default), 'BigNumber', or 'Fraction'
+    number: 'BigNumber', // Default type of number: 'number' (default), 'BigNumber', or 'Fraction'
     precision: 20 // Number of significant digits for BigNumbers
 });
 
@@ -22,13 +27,16 @@ math.config({
 function mechanics() {
     if (dsp.innerHTML.length < 12) {
         $('#display').css('font-size', '54px');
+        $('#display').css('padding-top', '0');
     } else if (dsp.innerHTML.length === 12) {
         $('#display').css('font-size', '26px');
+        $('#display').css('padding-top', '2px');
     } else if (dsp.innerHTML.length === 23 && str.indexOf('<br />') === -1) {
         str = str + '<br />';
     } else if (str.length === 53) {
         str = str.slice(0, -1);
         dsp.innerHTML = str;
+        // TODO add some cool info
     }
 }
 
@@ -81,7 +89,7 @@ function verify(input) {
         return;
     } else if (operators.indexOf(input) !== -1 && operators.indexOf(lastChar) !== -1) { // Avoid two operators next to each other
         return;
-    } else if (dsp.innerHTML === '0' && (input === operators[2] || input === operators[3] || input === operators[0])) { //Avoid operators as a first character
+    } else if (dsp.innerHTML === '0' && (input === operators[2] || input === operators[3] || input === operators[0])) { //Avoid operators as a first character (not including '-')
         return;
     } else if (input === '.' && str.lastIndexOf('.') > -1 && checkDot() === false) { // Avoid decimal point if not valid
         return;
@@ -109,14 +117,20 @@ function verify(input) {
         try {
             if (isNaN(math.eval(str).e)) { // Dividing by 0
                 str = 'error';
-            } else if (!(isNaN(math.eval(str).e)) && (math.format(math.eval(str)).length < 23)) {
+                // TODO create some cool notification
+            } else if (math.format(math.eval(str)).length < 12) {
                 str = math.format(math.eval(str));
-            } else if (!(isNaN(math.eval(str).e)) && (math.format(math.eval(str)).length >= 23)) {
-                if (math.format(math.eval(str)).length <= 46) { // Insert <br /> in case of long calculation result
+            } else if (math.format(math.eval(str)).length < 23) {
+                $('#display').css('font-size', '26px');
+                $('#display').css('padding-top', '2px');
+                str = math.format(math.eval(str));
+            } else if (math.format(math.eval(str)).length >= 23) {
+                if (math.format(math.eval(str)).length <= 46) { // Insert <br /> in case of long calculation result between 23 and 46 characters
                     str = math.format(math.eval(str));
                     str = str.splice(23, 0, '<br />');
                 } else { // In case of result longer than 45 characters
                     str = 'Char limit hit';
+                    // TODO create char limit notification
                 }
             } else {
                 str = '0';
@@ -131,7 +145,7 @@ function verify(input) {
         if (dsp.innerHTML === '0' && input !== '.') { // Change '0' to '.' if it's first input from user
             str = input;
             return str;
-        } else { // If all above ok, disply input
+        } else { // If all above ok, display input
             str = str + input;
             return str;
         }
