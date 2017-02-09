@@ -2,6 +2,56 @@
     box-sizing: border-box;
 }
 
+body,
+html,
+div,
+blockquote,
+img,
+label,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+form,
+a,
+fieldset,
+input,
+th,
+td,
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+}
+
+a {
+    color: #bfbfbf;
+    text-decoration: none;
+    font-family: 'verdana', sans-serif;
+    font-size: 14px;
+}
+
+::-moz-selection {
+    background: #99ff8a;
+    /* WebKit/Blink Browsers */
+}
+
+::selection {
+    background: #99ff8a;
+    /* WebKit/Blink Browsers */
+}
+
 .clearfix:before,
 .clearfix:after {
     content: "";
@@ -17,12 +67,36 @@
     /* ie 6/7 */
 }
 
+body {
+    background-color: #404040;
+    font-size: 16px;
+}
+
+#error {
+    position: absolute;
+    background-color: #da5858;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    left: 100px;
+    top: 6px;
+    display: none;
+}
+
+#message {
+    position: absolute;
+    left: 120px;
+    top: 5px;
+    color: #dcdcdc;
+    font-family: "verdana", sans-serif;
+}
+
 #container {
     position: relative;
     width: 320px;
     height: 500px;
-    background-color: blue;
-    margin: 30px auto;
+    background-color: #848484;
+    margin: 0 auto;
     border-radius: 5px;
 }
 
@@ -46,19 +120,55 @@
     padding: 0 15px;
     text-align: right;
     border-radius: 5px;
+    box-shadow: inset -1px 1px 6px 5px #324230;
+}
+
+.border {
+    background-color: #777777;
+    width: 346px;
+    height: 534px;
+    padding-top: 15px;
+    margin: 30px auto;
+    border-radius: 7px;
+    box-shadow: inset 0px 0px 12px 3px #2d2d2d, 0px 0px 7px 1px #242424;
+}
+
+#special {
+    position: absolute;
+    top: 37px;
+    left: 12px;
+    z-index: 10;
+    font-size: 46px;
+    color: #bcffb2;
+    font-family: 'digital-7_monomono';
+    display: none;
 }
 
 .button {
     position: absolute;
     width: 60px;
     height: 60px;
-    background-color: yellow;
+    background-color: #e4e4e4;
     font-size: 30px;
     line-height: 60px;
     padding: 0 20px;
     cursor: pointer;
     font-family: 'Verdana', sans-serif;
     border-radius: 5px;
+    color: #3c3c3c;
+    box-shadow: inset 0 0 3px 2px #ABABAB, 1px 1px 2px 2px #242424;
+    -webkit-box-shadow: inset 0 0 3px 2px #ABABAB, 1px 1px 2px 2px #242424;
+    -moz-box-shadow: inset 0 0 3px 2px #ABABAB, 1px 1px 2px 2px #242424;
+    -o-box-shadow: inset 0 0 3px 2px #ABABAB, 1px 1px 2px 2px #242424;
+    -webkit-transition: all 0.07s ease-in-out;
+    transition: all 0.07s ease-in-out;
+}
+
+.button:active {
+    box-shadow: inset 0 0 3px 2px #ABABAB, 0 0 0 0 #242424;
+    -webkit-box-shadow: inset 0 0 3px 2px #ABABAB, 0 0 0 0 #242424;
+    -moz-box-shadow: inset 0 0 3px 2px #ABABAB, 0 0 0 0 #242424;
+    -o-box-shadow: inset 0 0 3px 2px #ABABAB, 0 0 0 0 #242424;
 }
 
 #ac {
@@ -125,6 +235,7 @@
 #plus {
     top: 270px;
     left: 250px;
+    padding: 0 18px;
 }
 
 #one {
