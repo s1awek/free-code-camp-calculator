@@ -156,7 +156,6 @@ function verify(input) {
             }
         } catch (err) { // In case of error
             str = 'error';
-            console.log(err);
             $('#error').css('display', 'block');
             document.getElementById('message').innerHTML = 'Error';
         }
